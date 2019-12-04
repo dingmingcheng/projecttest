@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dmc.dao.mockInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dmc.model.mockInfoEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="alias" jdbcType="VARCHAR" property="alias" />
+    <result column="proto" jdbcType="VARCHAR" property="proto" />
+    <result column="domain" jdbcType="VARCHAR" property="domain" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="bind" jdbcType="INTEGER" property="bind" />
+    <result column="port" jdbcType="INTEGER" property="port" />
+    <result column="filename" jdbcType="VARCHAR" property="filename" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="complete_url" jdbcType="VARCHAR" property="completeUrl" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.dmc.model.mockInfoEntity">
+    <result column="json" jdbcType="LONGVARCHAR" property="json" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, alias, proto, domain, url, bind, port, filename, status, complete_url
+  </sql>
+  <sql id="Blob_Column_List">
+    json
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from mock_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from mock_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dmc.model.mockInfoEntity">
+    insert into mock_info (id, alias, proto,
+      domain, url, bind, 
+      port, filename, status, 
+      complete_url, json)
+    values (#{id,jdbcType=INTEGER}, #{alias,jdbcType=VARCHAR}, #{proto,jdbcType=VARCHAR},
+      #{domain,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{bind,jdbcType=INTEGER}, 
+      #{port,jdbcType=INTEGER}, #{filename,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{completeUrl,jdbcType=VARCHAR}, #{json,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dmc.model.mockInfoEntity">
+    insert into mock_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="alias != null">
+        alias,
+      </if>
+      <if test="proto != null">
+        proto,
+      </if>
+      <if test="domain != null">
+        domain,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="bind != null">
+        bind,
+      </if>
+      <if test="port != null">
+        port,
+      </if>
+      <if test="filename != null">
+        filename,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="completeUrl != null">
+        complete_url,
+      </if>
+      <if test="json != null">
+        json,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="alias != null">
+        #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="proto != null">
+        #{proto,jdbcType=VARCHAR},
+      </if>
+      <if test="domain != null">
+        #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="bind != null">
+        #{bind,jdbcType=INTEGER},
+      </if>
+      <if test="port != null">
+        #{port,jdbcType=INTEGER},
+      </if>
+      <if test="filename != null">
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="completeUrl != null">
+        #{completeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="json != null">
+        #{json,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dmc.model.mockInfoEntity">
+    update mock_info
+    <set>
+      <if test="alias != null">
+        alias = #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="proto != null">
+        proto = #{proto,jdbcType=VARCHAR},
+      </if>
+      <if test="domain != null">
+        domain = #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="bind != null">
+        bind = #{bind,jdbcType=INTEGER},
+      </if>
+      <if test="port != null">
+        port = #{port,jdbcType=INTEGER},
+      </if>
+      <if test="filename != null">
+        filename = #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="completeUrl != null">
+        complete_url = #{completeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="json != null">
+        json = #{json,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.dmc.model.mockInfoEntity">
+    update mock_info
+    set alias = #{alias,jdbcType=VARCHAR},
+      proto = #{proto,jdbcType=VARCHAR},
+      domain = #{domain,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      bind = #{bind,jdbcType=INTEGER},
+      port = #{port,jdbcType=INTEGER},
+      filename = #{filename,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      complete_url = #{completeUrl,jdbcType=VARCHAR},
+      json = #{json,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dmc.model.mockInfoEntity">
+    update mock_info
+    set alias = #{alias,jdbcType=VARCHAR},
+      proto = #{proto,jdbcType=VARCHAR},
+      domain = #{domain,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      bind = #{bind,jdbcType=INTEGER},
+      port = #{port,jdbcType=INTEGER},
+      filename = #{filename,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      complete_url = #{completeUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

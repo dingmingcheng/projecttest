@@ -1,0 +1,38 @@
+spring:
+  profiles:
+    #  表示所用配置文件为application-dev.yml
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/master?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: dmcdmc123
+    tomcat:
+      initialSize: 1
+      min-idle: 1
+      max-idle: 20
+      max-wait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 30000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+logging:
+  file: logs/demo.log
+consumer1:
+  consumerGroup: testConsumer
+  namesrvAddr: localhost:9876
+  topic: TopicTest1
+  tag: push
+consumer2:
+  consumerGroup: testConsumer2
+  namesrvAddr: localhost:9876
+  topic: TopicTest1
+  tag: push
+producer:
+  groupName: testProducer
+  namesrvAddr: localhost:9876
+topictest1:
+  topic: TopicTest1
+  tag: push

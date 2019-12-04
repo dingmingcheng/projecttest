@@ -1,0 +1,8 @@
+plane1 1 1 1
+plane1 1 1 1 1 2 3
+plane2 2 2 2
+plane1 2 3 4 1 -4 1
+plane2 3 3 3 1 -5 1
+plane1 3 -1 5 1 1 1
+plane2 4 -2 4 1 1 1
+plane1 1 1 1 1 2 3

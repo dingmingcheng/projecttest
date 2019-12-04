@@ -1,0 +1,95 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.dmc.mq.Consumer",
+      "name": "consumer",
+      "type": "com.dmc.mq.Consumer"
+    },
+    {
+      "sourceType": "com.dmc.mq.Consumer2",
+      "name": "consumer2",
+      "type": "com.dmc.mq.Consumer2"
+    },
+    {
+      "sourceType": "com.dmc.mq.Producer",
+      "name": "producer",
+      "type": "com.dmc.mq.Producer"
+    },
+    {
+      "sourceType": "com.dmc.service.Impl.MqServiceImpl",
+      "name": "topictest1",
+      "type": "com.dmc.service.Impl.MqServiceImpl"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.dmc.mq.Consumer",
+      "name": "consumer.consumer-group",
+      "description": "消费者的组名",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dmc.mq.Consumer",
+      "name": "consumer.namesrv-addr",
+      "description": "NameServer 地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dmc.mq.Consumer",
+      "name": "consumer.tag",
+      "description": "Tag标签名称，对消息进行再归类",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dmc.mq.Consumer",
+      "name": "consumer.topic",
+      "description": "Topic名称",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dmc.mq.Consumer2",
+      "name": "consumer2.consumer-group",
+      "description": "消费者的组名",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dmc.mq.Consumer2",
+      "name": "consumer2.namesrv-addr",
+      "description": "NameServer 地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dmc.mq.Consumer2",
+      "name": "consumer2.tag",
+      "description": "Tag标签名称，对消息进行再归类",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dmc.mq.Consumer2",
+      "name": "consumer2.topic",
+      "description": "Topic名称",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dmc.mq.Producer",
+      "name": "producer.group-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dmc.mq.Producer",
+      "name": "producer.namesrv-addr",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dmc.service.Impl.MqServiceImpl",
+      "name": "topictest1.tag",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dmc.service.Impl.MqServiceImpl",
+      "name": "topictest1.topic",
+      "type": "java.lang.String"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dmc.dao.TesttableMapper">
+  <resultMap id="BaseResultMap" type="com.dmc.model.TesttableEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from testtable
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from testtable
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dmc.model.TesttableEntity">
+    insert into testtable (id, name, num
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{num,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dmc.model.TesttableEntity">
+    insert into testtable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dmc.model.TesttableEntity">
+    update testtable
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dmc.model.TesttableEntity">
+    update testtable
+    set name = #{name,jdbcType=VARCHAR},
+      num = #{num,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <insert id="batchInsert" parameterType="com.dmc.model.TesttableEntity">
+    insert into testtable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="entities[0].id != null">
+        id,
+      </if>
+      <if test="entities[0].name != null">
+        name,
+      </if>
+      <if test="entities[0].num != null">
+        num,
+      </if>
+    </trim>
+    <foreach collection="entities" item="entity" open="values" close="" index="0" separator=",">
+      <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="entity.id != null">
+          #{entity.id,jdbcType=INTEGER},
+        </if>
+        <if test="entity.name != null">
+          #{entity.name,jdbcType=VARCHAR},
+        </if>
+        <if test="entity.num != null">
+          #{entity.num,jdbcType=INTEGER},
+        </if>
+      </trim>
+    </foreach>
+  </insert>
+</mapper>
