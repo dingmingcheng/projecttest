@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
@@ -29,6 +30,17 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 @Slf4j
 public class ExcelUtil {
+
+    public static void main(String[] args) {
+        String a = "1341";
+        String b = "5432";
+        String c = "a";
+        String d = "adasdk";
+        System.out.println(a.compareTo(b));
+        System.out.println(c.compareTo(d));
+        PriorityQueue<Solution> queue = new PriorityQueue<>();
+
+    }
 
     private ExcelUtil() {
     }

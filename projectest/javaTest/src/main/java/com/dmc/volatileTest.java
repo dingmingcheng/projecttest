@@ -30,6 +30,7 @@ public class volatileTest {
     }
 
     public static void main(String[] args) throws InterruptedException {
+//        System.out.println(z.replace("\n", ""));
         int time = 0;
         while (true) {
             Thread aTask = new Thread(new TaskA());
